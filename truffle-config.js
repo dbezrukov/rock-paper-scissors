@@ -1,8 +1,10 @@
+/*
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const infuraProjectId = "22499662b4a84006a0a90a1c539e84b6";
 
 // Not for production, generated with https://iancoleman.io/bip39
 const mnemonic = "twist best false drip indoor style siege rely host member dignity crush fatigue absorb bachelor";
+*/
 
 module.exports = {
   networks: {
