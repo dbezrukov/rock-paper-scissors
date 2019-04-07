@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import GameResult from "./GameResult";
-import UserChoice from "./UserChoice";
+import Game from "./Game";
 
 class App extends Component {
 
@@ -40,16 +39,12 @@ class App extends Component {
 
   render() {
 		if (this.state.loading) {
-	  	return "Loading Rock-Paper-Scissors Game...";
+	  	return (<p>Загрузка игры...</p>)
 		}
 
 		return (
 	  	<div className="App">
-        <GameResult
-          drizzle={this.props.drizzle}
-          drizzleState={this.state.drizzleState}
-        />
-        <UserChoice
+        <Game
           drizzle={this.props.drizzle}
           drizzleState={this.state.drizzleState}
         />
