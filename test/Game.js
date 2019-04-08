@@ -1,6 +1,5 @@
 const Game = artifacts.require("./Game.sol");
 
-// should display win or not win
 contract("Game", accounts => {
   
   it ("rock should beat scissors", async () => {
