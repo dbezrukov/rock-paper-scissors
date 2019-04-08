@@ -1,23 +1,27 @@
 pragma solidity >=0.4.21 <0.6.0;
 
-// User choices: 0 - ROCK, 1 - PAPER, 2 - SCISSORS
-// Game result: 0 - LOSE, 1 - DRAW, 2 - WIN
+// Выбор игрока: 0 - камень, 1 - бумага, 2 - ножницы
+// Результат игры: 1 - игрок А проиграл, 2 - ничья, 3 - игрок А выиграл
 
 contract Game {
-  uint8[3][3] resultMatrix = [[1, 0, 2], [2, 1, 0], [0, 2, 1]];
+  uint8[3][3] resultMatrix = [[2, 1, 3], [3, 2, 1], [1, 3, 2]];
 
   uint8 private firstChoice;
 
   struct GameState {
     bool firstChoiceWasMade;
-    string description;
+    uint8 revealedFirstChoice;
+    uint8 revealedSecondChoice;
+    uint8 result;
   }
   
   GameState public gameState;
 
   constructor() public {
     gameState.firstChoiceWasMade = false;
-    gameState.description = "Игрок А, ваш ход.";
+    gameState.revealedFirstChoice = 0;
+    gameState.revealedSecondChoice = 0;
+    gameState.result = 0;
   }
 
   function submitChoice(uint8 choice) public {
@@ -25,12 +29,13 @@ contract Game {
     if (!gameState.firstChoiceWasMade) {
       firstChoice = choice;
       gameState.firstChoiceWasMade = true;
-      gameState.description = "Игрок Б, ваш ход.";
+      gameState.result = 0;
 
     } else {
-      uint8 gameResult = resultMatrix[firstChoice][choice];
       gameState.firstChoiceWasMade = false;
-      gameState.description = "Игра закончена. Игрок А, ваш ход.";
+      gameState.revealedFirstChoice = firstChoice;
+      gameState.revealedSecondChoice = choice;
+      gameState.result = resultMatrix[firstChoice][choice];
     }
   }
 }
