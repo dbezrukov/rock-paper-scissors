@@ -25,7 +25,7 @@ truffle migrate
 ### Serving frontend
 
 ```
-cd client 
+cd app
 npm install
 npm start
 ```
