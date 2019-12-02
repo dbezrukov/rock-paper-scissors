@@ -23,7 +23,7 @@ npm install truffle -g
 npm install ganache-cli -g
 ```
 
-### Запуск тектового блокчейна Ganache
+### Запуск тестового блокчейна Ganache
 
 ```
 ganache-cli --host 0.0.0.0
