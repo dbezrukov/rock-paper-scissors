@@ -36,7 +36,7 @@ yarn global add ganache-cli
 ganache-cli --host 0.0.0.0
 ```
 
-## Screen virtual screen 2
+## Linux virtual screen 2
 ### Smart contract compilation and deployment
 ```
 truffle compile
