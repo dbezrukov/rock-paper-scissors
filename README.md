@@ -1,46 +1,53 @@
-## Камень, ножницы, бумага
+## Rock Paper Scissors
 
-DApp игра Камень, ножницы, бумага.<br><br>
-Контракт написан на языке Solidity.<br>
-Контракт скомпилирован и задеплоен в блокчеин с использованием фреймворка Truffle (solc, web3).<br>
-Для тестирования контракта применяется Mocha.<br>
-Фронтенд игры реализован средствами библиотеки Drizzle, входящей в Truffle.<br>
-В основе веб приложения лежит React/Redux Store, синхронизированный с контрактом через web3 провайдера.<br>
+Rock Paper Scissors DApp game.<br><br>
+Smart contracts are written in Solidity.<br>
+Smart contracts are compiled and deployed to a private Ganache blockchain using Truffle framework (solc, web3).<br>
+Mocha framework is used for testing contracts.<br>
+App frontend is implemented using the Drizzle library included in Truffle.<br>
+App relies on React/Redux Store, synchronized with smart contract via web3 provider.<br>
 
-### Процесс игры
-Игра предназначена для двух участников.<br>
-Каждый участник открывает игру в своем браузере.<br>
-Игроки договариваются кто их них Игрок А, а кто Б, и начинают ходить по очереди.<br>
-Ход первого игрока запоминается в блокчейне, после хода второго игрока выводится результат.<br><br>
-Данная игра может быть усовершенствована шифрованием ставки первого игрока.<br>
+## Game process
 
-Игра доступна по адресу http://78.46.181.188:3000/.
+The game is designed for two participants.<br>
+Each participant opens the game in their own browser.<br>
+Players agree on who is Player A and who is B, and begin to take turns playing.<br>
+The first player's bet is stored in the blockchain, and after the second player makes a bet, game result is displayed.<br>
+This game implementation can be improved by encrypting the first player's bet.<br>
 
-### Установка окружения
+## Setting Up prerequisites
+### Installing Node.js
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install lts/dubnium
+```
 
 ```
-npm install truffle -g
-npm install ganache-cli -g
+npm install -g yarn
+yarn global add truffle
+yarn global add ganache-cli
 ```
 
-### Запуск тестового блокчейна Ganache
+## Linux virtual screen 1
+### Starting Ganache private blockchain
 
 ```
 ganache-cli --host 0.0.0.0
 ```
 
-### Компиляция и деплой контракта
-
+## Screen virtual screen 2
+### Smart contract compilation and deployment
 ```
 truffle compile
 truffle test
 truffle migrate
 ```
 
-### Запуск фронтенда игры
-
+### Starting app frontend
 ```
 cd app
-npm install
-npm start
+yarn
+yarn start
 ```
